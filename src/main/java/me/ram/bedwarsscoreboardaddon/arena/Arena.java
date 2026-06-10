@@ -28,7 +28,9 @@ import io.github.bedwarsrel.game.Team;
 import lombok.Getter;
 import me.ram.bedwarsscoreboardaddon.Main;
 import me.ram.bedwarsscoreboardaddon.addon.Actionbar;
+import me.ram.bedwarsscoreboardaddon.addon.AntiBedGapBreak;
 import me.ram.bedwarsscoreboardaddon.addon.DeathMode;
+import me.ram.bedwarsscoreboardaddon.addon.FriendlyBreak;
 import me.ram.bedwarsscoreboardaddon.addon.GameChest;
 import me.ram.bedwarsscoreboardaddon.addon.Graffiti;
 import me.ram.bedwarsscoreboardaddon.addon.HealthLevel;
@@ -63,6 +65,10 @@ public class Arena {
 	private HealthLevel healthLevel;
 	@Getter
 	private NoBreakBed noBreakBed;
+	@Getter
+	private AntiBedGapBreak antiBedGapBreak;
+	@Getter
+	private FriendlyBreak friendlyBreak;
 	@Getter
 	private ResourceUpgrade resourceUpgrade;
 	@Getter
@@ -99,6 +105,8 @@ public class Arena {
 		deathMode = new DeathMode(this);
 		healthLevel = new HealthLevel(this);
 		noBreakBed = new NoBreakBed(this);
+		antiBedGapBreak = new AntiBedGapBreak(this);
+		friendlyBreak = new FriendlyBreak(this);
 		resourceUpgrade = new ResourceUpgrade(this);
 		holographic = new Holographic(this, resourceUpgrade);
 		teamShop = new TeamShop(this);
@@ -272,6 +280,8 @@ public class Arena {
 		});
 		teamShop.onEnd();
 		noBreakBed.onEnd();
+		antiBedGapBreak.onEnd();
+		friendlyBreak.onEnd();
 		holographic.remove();
 		if (Main.getInstance().isEnabledCitizens()) {
 			shop.remove();
@@ -354,7 +364,7 @@ public class Arena {
 		return true;
 	}
 
-	private Boolean isAlivePlayer(Player player) {
+	public Boolean isAlivePlayer(Player player) {
 		Game game = BedwarsRel.getInstance().getGameManager().getGameOfPlayer(player);
 		if (game == null) {
 			return false;
