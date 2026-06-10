@@ -14,7 +14,7 @@
 #
 
 #配置版本 (请勿修改!)
-version: 23
+version: 24
 
 
 #更新检测
@@ -1060,6 +1060,52 @@ nobreakbed:
 
   #显示的信息
   message: "&f已允许破坏敌方的床！"
+
+
+#防止隔空破床
+antibedgapbreak:
+
+  #是否启用
+  enabled: true
+
+  #被阻止时的提示信息
+  message: "&c你不能隔着方块破坏床！"
+
+
+#友方破坏踢出
+friendlybreak:
+
+  #是否启用
+  enabled: true
+
+  #最大次数（超过此数将被踢出）
+  max_count: 3
+
+  #警告阈值（在这些次数发送警告）
+  warning_thresholds:
+  - 1
+  - 2
+  - 3
+
+  #踢出时是否向全场广播（false则仅向队伍广播）
+  broadcast_to_game: false
+
+  #警告信息（发送给破坏者）
+  #变量: {player} 玩家名 {victim} 受害者名 {count} 当前次数 {max_count} 最大次数 {remaining} 剩余次数
+  warning_message: "&c&l警告! &e你破坏了队友 &a{victim} &e脚下的方块！(&c{count}&e/&a{max_count}&e)"
+
+  #受害者提示信息
+  victim_message: "&c{player} &e破坏了你脚下的方块！"
+
+  #踢出提示信息（发送给被踢者）
+  kick_message: "&c你因多次破坏队友脚下的方块而被踢出！"
+
+  #踢出原因（显示在踢出界面）
+  kick_reason: "&c恶意破坏队友方块"
+
+  #广播信息
+  #变量: {player} 玩家名 {count} 次数 {team} 队伍名 {teamcolor} 队伍颜色
+  broadcast_message: "&c{player} &e因多次破坏队友方块(&c{count}&e次)而被踢出游戏！"
 
 
 #出生点、资源点保护

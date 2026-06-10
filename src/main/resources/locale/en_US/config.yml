@@ -14,7 +14,7 @@
 #
 
 #Config version (Don't edit!)
-version: 23
+version: 24
 
 #Check the version update with the network
 update_check:
@@ -947,6 +947,52 @@ nobreakbed:
   subtitle: ""
 
   message: "&fCan destroy the bed!"
+
+
+#Anti Gap Bed Break
+antibedgapbreak:
+
+  #Enable this feature
+  enabled: true
+
+  #Denial message
+  message: "&cYou cannot break the bed through blocks!"
+
+
+#Friendly Break Kick
+friendlybreak:
+
+  #Enable this feature
+  enabled: true
+
+  #Max violations before kick
+  max_count: 3
+
+  #Warning thresholds (send warning at these counts)
+  warning_thresholds:
+  - 1
+  - 2
+  - 3
+
+  #Broadcast to entire game on kick (false = team only)
+  broadcast_to_game: false
+
+  #Warning message (to breaker)
+  #Placeholders: {player} {victim} {count} {max_count} {remaining}
+  warning_message: "&c&lWARNING! &eYou broke a block under teammate &a{victim}&e! (&c{count}&e/&a{max_count}&e)"
+
+  #Victim notification message
+  victim_message: "&c{player} &ebroke the block under you!"
+
+  #Kick message (to kicked player)
+  kick_message: "&cYou were kicked for repeatedly breaking blocks under teammates!"
+
+  #Kick reason (shown on disconnect screen)
+  kick_reason: "&cMalicious teammate griefing"
+
+  #Broadcast message on kick
+  #Placeholders: {player} {count} {team} {teamcolor}
+  broadcast_message: "&c{player} &ewas kicked for breaking teammate blocks &c{count} &etimes!"
 
 
 #Team spawn, Resource generator protection

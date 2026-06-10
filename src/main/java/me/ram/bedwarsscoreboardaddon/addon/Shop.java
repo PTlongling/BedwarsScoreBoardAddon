@@ -228,7 +228,7 @@ public class Shop {
 			for (Player player : game.getPlayers()) {
 				try {
 					man.sendServerPacket(player, packet, false);
-				} catch (InvocationTargetException e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
