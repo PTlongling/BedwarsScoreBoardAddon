@@ -14,6 +14,8 @@ public class NetworkUtil {
 		try {
 			URL url = new URL(urlString);
 			URLConnection conn = url.openConnection();
+			conn.setRequestProperty("User-Agent", "BedwarsScoreBoardAddon");
+			conn.setRequestProperty("Connection", "close");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			String line = null;
 			while ((line = reader.readLine()) != null) {

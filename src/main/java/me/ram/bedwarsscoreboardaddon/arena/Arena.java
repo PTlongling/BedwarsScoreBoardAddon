@@ -10,7 +10,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.ItemMergeEvent;
 import org.bukkit.event.hanging.HangingBreakEvent;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerArmorStandManipulateEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -31,6 +30,7 @@ import me.ram.bedwarsscoreboardaddon.addon.Actionbar;
 import me.ram.bedwarsscoreboardaddon.addon.AntiBedGapBreak;
 import me.ram.bedwarsscoreboardaddon.addon.DeathMode;
 import me.ram.bedwarsscoreboardaddon.addon.FriendlyBreak;
+import me.ram.bedwarsscoreboardaddon.addon.GenSplit;
 import me.ram.bedwarsscoreboardaddon.addon.GameChest;
 import me.ram.bedwarsscoreboardaddon.addon.Graffiti;
 import me.ram.bedwarsscoreboardaddon.addon.HealthLevel;
@@ -45,7 +45,6 @@ import me.ram.bedwarsscoreboardaddon.addon.Respawn;
 import me.ram.bedwarsscoreboardaddon.addon.ScoreBoard;
 import me.ram.bedwarsscoreboardaddon.addon.Shop;
 import me.ram.bedwarsscoreboardaddon.addon.TimeTask;
-import me.ram.bedwarsscoreboardaddon.addon.teamshop.TeamShop;
 import me.ram.bedwarsscoreboardaddon.config.Config;
 import me.ram.bedwarsscoreboardaddon.storage.PlayerGameStorage;
 import me.ram.bedwarsscoreboardaddon.utils.BedwarsUtil;
@@ -70,11 +69,11 @@ public class Arena {
 	@Getter
 	private FriendlyBreak friendlyBreak;
 	@Getter
+	private GenSplit genSplit;
+	@Getter
 	private ResourceUpgrade resourceUpgrade;
 	@Getter
 	private Holographic holographic;
-	@Getter
-	private TeamShop teamShop;
 	@Getter
 	private InvisibilityPlayer invisiblePlayer;
 	@Getter
@@ -107,9 +106,9 @@ public class Arena {
 		noBreakBed = new NoBreakBed(this);
 		antiBedGapBreak = new AntiBedGapBreak(this);
 		friendlyBreak = new FriendlyBreak(this);
+		genSplit = new GenSplit(this);
 		resourceUpgrade = new ResourceUpgrade(this);
 		holographic = new Holographic(this, resourceUpgrade);
-		teamShop = new TeamShop(this);
 		invisiblePlayer = new InvisibilityPlayer(this);
 		lobbyBlock = new LobbyBlock(this);
 		respawn = new Respawn(this);
@@ -166,8 +165,8 @@ public class Arena {
 		} else {
 			dies.put(player.getName(), 1);
 		}
+		playerGameStorage.resetKillStreak(player.getName());
 		PlaySound.playSound(player, Config.play_sound_sound_death);
-		teamShop.removeImmunePlayer(player);
 	}
 
 	public void onDamage(EntityDamageEvent e) {
@@ -224,6 +223,7 @@ public class Arena {
 		} else {
 			totalkills.put(killer.getName(), 1);
 		}
+		playerGameStorage.incrementKillStreak(killer.getName());
 		PlaySound.playSound(killer, Config.play_sound_sound_kill);
 	}
 
@@ -278,10 +278,10 @@ public class Arena {
 		gameTasks.forEach(task -> {
 			task.cancel();
 		});
-		teamShop.onEnd();
 		noBreakBed.onEnd();
 		antiBedGapBreak.onEnd();
 		friendlyBreak.onEnd();
+		genSplit.onEnd();
 		holographic.remove();
 		if (Main.getInstance().isEnabledCitizens()) {
 			shop.remove();
@@ -301,10 +301,6 @@ public class Arena {
 
 	public void onArmorStandManipulate(PlayerArmorStandManipulateEvent e) {
 		holographic.onArmorStandManipulate(e);
-	}
-
-	public void onClick(InventoryClickEvent e) {
-		teamShop.onClick(e);
 	}
 
 	public void onItemMerge(ItemMergeEvent e) {
@@ -328,8 +324,6 @@ public class Arena {
 			rejoin.removePlayer(player.getName());
 		}
 		respawn.onPlayerLeave(player);
-		// teamShop.removeTriggeredPlayer(player);
-		teamShop.removeImmunePlayer(player);
 	}
 
 	public void onPlayerJoined(Player player) {

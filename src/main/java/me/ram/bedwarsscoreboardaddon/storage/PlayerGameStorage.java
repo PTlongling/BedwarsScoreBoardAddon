@@ -13,6 +13,7 @@ public class PlayerGameStorage {
 	private Map<String, Integer> finalkills;
 	private Map<String, Integer> dies;
 	private Map<String, Integer> beds;
+	private Map<String, Integer> killstreaks;
 
 	public PlayerGameStorage(Arena arena) {
 		this.arena = arena;
@@ -21,6 +22,7 @@ public class PlayerGameStorage {
 		finalkills = new HashMap<String, Integer>();
 		dies = new HashMap<String, Integer>();
 		beds = new HashMap<String, Integer>();
+		killstreaks = new HashMap<String, Integer>();
 	}
 
 	public Arena getArena() {
@@ -49,5 +51,17 @@ public class PlayerGameStorage {
 
 	public Map<String, Integer> getPlayerBeds() {
 		return beds;
+	}
+
+	public int getKillStreaks(String playerName) {
+		return killstreaks.getOrDefault(playerName, 0);
+	}
+
+	public void incrementKillStreak(String playerName) {
+		killstreaks.put(playerName, killstreaks.getOrDefault(playerName, 0) + 1);
+	}
+
+	public void resetKillStreak(String playerName) {
+		killstreaks.remove(playerName);
 	}
 }

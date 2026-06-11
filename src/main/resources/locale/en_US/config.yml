@@ -14,7 +14,7 @@
 #
 
 #Config version (Don't edit!)
-version: 24
+version: 25
 
 #Check the version update with the network
 update_check:
@@ -993,6 +993,46 @@ friendlybreak:
   #Broadcast message on kick
   #Placeholders: {player} {count} {team} {teamcolor}
   broadcast_message: "&c{player} &ewas kicked for breaking teammate blocks &c{count} &etimes!"
+
+
+#Resource split (distribute picked-up resources to nearby teammates)
+resource_gensplit:
+
+  #Enable this feature
+  enabled: true
+
+  #Resource types to split (material names)
+  items:
+  - IRON_INGOT
+  - GOLD_INGOT
+  - EMERALD
+  - DIAMOND
+
+  #Split range (blocks)
+  range: 16.0
+
+
+#Kill soul item (kill streak reward, survives death)
+killsoul:
+
+  #Enable this feature
+  enabled: true
+
+  #Auto-detect mode (activate for 8-team games or XP mode)
+  autodetect: true
+
+  #Kill streak required when not in auto-detect mode
+  on_killstreak: 3
+
+  #Keep item on death (no drop)
+  no_drop: true
+
+  #Soul item properties
+  item:
+    material: NETHER_STAR
+    name: "&6&lSoul"
+    lore:
+    - "&7Kill streak reward"
 
 
 #Team spawn, Resource generator protection

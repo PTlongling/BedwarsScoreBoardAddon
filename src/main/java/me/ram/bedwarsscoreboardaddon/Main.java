@@ -15,6 +15,7 @@ import io.github.bedwarsrel.BedwarsRel;
 import ldcr.BedwarsXP.EventListeners;
 import lombok.Getter;
 import me.ram.bedwarsscoreboardaddon.addon.ChatFormat;
+import me.ram.bedwarsscoreboardaddon.addon.KillSoulItem;
 import me.ram.bedwarsscoreboardaddon.addon.Compass;
 import me.ram.bedwarsscoreboardaddon.addon.DeathItem;
 import me.ram.bedwarsscoreboardaddon.addon.FastRespawn;
@@ -255,5 +256,6 @@ public class Main extends JavaPlugin {
 		Bukkit.getPluginManager().registerEvents(new EditGame(), this);
 		Bukkit.getPluginManager().registerEvents(new Compass(), this);
 		Bukkit.getPluginManager().registerEvents(new Title(), this);
+		Bukkit.getPluginManager().registerEvents(new KillSoulItem(), this);
 	}
 }

@@ -14,7 +14,7 @@
 #
 
 #配置版本 (请勿修改!)
-version: 24
+version: 25
 
 
 #更新检测
@@ -1106,6 +1106,46 @@ friendlybreak:
   #广播信息
   #变量: {player} 玩家名 {count} 次数 {team} 队伍名 {teamcolor} 队伍颜色
   broadcast_message: "&c{player} &e因多次破坏队友方块(&c{count}&e次)而被踢出游戏！"
+
+
+#资源分配（拾取资源时分给附近队友）
+resource_gensplit:
+
+  #是否启用
+  enabled: true
+
+  #分配的资源类型（物品材质名）
+  items:
+  - IRON_INGOT
+  - GOLD_INGOT
+  - EMERALD
+  - DIAMOND
+
+  #分配范围（方块数）
+  range: 16.0
+
+
+#灵魂物品（连杀奖励，死亡不掉落）
+killsoul:
+
+  #是否启用
+  enabled: true
+
+  #自动判断模式（8队或经验模式时启用）
+  autodetect: true
+
+  #非自动模式时，连杀多少次给予灵魂物品
+  on_killstreak: 3
+
+  #死亡不掉落
+  no_drop: true
+
+  #灵魂物品属性
+  item:
+    material: NETHER_STAR
+    name: "&6&l灵魂"
+    lore:
+    - "&7连杀奖励"
 
 
 #出生点、资源点保护
