@@ -33,12 +33,15 @@ import me.ram.bedwarsscoreboardaddon.addon.FriendlyBreak;
 import me.ram.bedwarsscoreboardaddon.addon.GenSplit;
 import me.ram.bedwarsscoreboardaddon.addon.GameChest;
 import me.ram.bedwarsscoreboardaddon.addon.Graffiti;
+import me.ram.bedwarsscoreboardaddon.addon.GroupTeleport;
+import me.ram.bedwarsscoreboardaddon.addon.HealthBar;
 import me.ram.bedwarsscoreboardaddon.addon.HealthLevel;
 import me.ram.bedwarsscoreboardaddon.addon.Holographic;
 import me.ram.bedwarsscoreboardaddon.addon.InvisibilityPlayer;
 import me.ram.bedwarsscoreboardaddon.addon.LobbyBlock;
 import me.ram.bedwarsscoreboardaddon.addon.NoBreakBed;
 import me.ram.bedwarsscoreboardaddon.addon.PlaySound;
+import me.ram.bedwarsscoreboardaddon.addon.RandomEvents;
 import me.ram.bedwarsscoreboardaddon.addon.Rejoin;
 import me.ram.bedwarsscoreboardaddon.addon.ResourceUpgrade;
 import me.ram.bedwarsscoreboardaddon.addon.Respawn;
@@ -70,6 +73,12 @@ public class Arena {
 	private FriendlyBreak friendlyBreak;
 	@Getter
 	private GenSplit genSplit;
+	@Getter
+	private RandomEvents randomEvents;
+	@Getter
+	private GroupTeleport groupTeleport;
+	@Getter
+	private HealthBar healthBar;
 	@Getter
 	private ResourceUpgrade resourceUpgrade;
 	@Getter
@@ -107,6 +116,9 @@ public class Arena {
 		antiBedGapBreak = new AntiBedGapBreak(this);
 		friendlyBreak = new FriendlyBreak(this);
 		genSplit = new GenSplit(this);
+		randomEvents = new RandomEvents(this);
+		groupTeleport = new GroupTeleport(this);
+		healthBar = new HealthBar(this);
 		resourceUpgrade = new ResourceUpgrade(this);
 		holographic = new Holographic(this, resourceUpgrade);
 		invisiblePlayer = new InvisibilityPlayer(this);
@@ -282,6 +294,9 @@ public class Arena {
 		antiBedGapBreak.onEnd();
 		friendlyBreak.onEnd();
 		genSplit.onEnd();
+		randomEvents.onEnd();
+		groupTeleport.onEnd();
+		healthBar.onEnd();
 		holographic.remove();
 		if (Main.getInstance().isEnabledCitizens()) {
 			shop.remove();

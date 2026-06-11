@@ -124,7 +124,7 @@ public class ScoreboardUtil {
 		}
 	}
 
-	private static void sendShowHealthPacket(Player player) {
+	public static void sendShowHealthPacket(Player player) {
 		ProtocolManager man = ProtocolLibrary.getProtocolManager();
 		if (Config.tab_health) {
 			try {
@@ -175,7 +175,7 @@ public class ScoreboardUtil {
 		}
 	}
 
-	private static void sendHealthValuePacket(Player player, Player target, int value) {
+	public static void sendHealthValuePacket(Player player, Player target, int value) {
 		ProtocolManager man = ProtocolLibrary.getProtocolManager();
 		if (Config.tab_health) {
 			try {

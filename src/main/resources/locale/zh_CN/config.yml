@@ -14,7 +14,7 @@
 #
 
 #配置版本 (请勿修改!)
-version: 25
+version: 26
 
 
 #更新检测
@@ -1146,6 +1146,36 @@ killsoul:
     name: "&6&l灵魂"
     lore:
     - "&7连杀奖励"
+
+
+#随机事件
+random_event:
+
+  #是否启用
+  enabled: true
+
+  #触发间隔（秒）
+  interval: 300
+
+
+#集体传送
+group_teleport:
+
+  #是否启用
+  enabled: true
+
+  #剩余时间阈值（秒），游戏剩余时间低于此值时触发
+  time_threshold: 120
+
+  #存活人数阈值，存活人数低于此值时触发
+  player_threshold: 4
+
+
+#血量显示（头顶+Tab列表）
+health_bar:
+
+  #是否启用
+  enabled: true
 
 
 #出生点、资源点保护

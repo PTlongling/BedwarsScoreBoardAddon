@@ -257,6 +257,12 @@ public class Config {
 	public static String killsoul_item_material;
 	public static String killsoul_item_name;
 	public static List<String> killsoul_item_lore;
+	public static boolean random_event_enabled;
+	public static int random_event_interval;
+	public static boolean group_teleport_enabled;
+	public static int group_teleport_time_threshold;
+	public static int group_teleport_player_threshold;
+	public static boolean health_bar_enabled;
 	public static boolean isBedwarsXPEnabled;
 	public static boolean spawn_no_build_spawn_enabled;
 	public static int spawn_no_build_spawn_range;
@@ -562,6 +568,12 @@ public class Config {
 		killsoul_item_material = config.getString("killsoul.item.material");
 		killsoul_item_name = ColorUtil.color(config.getString("killsoul.item.name"));
 		killsoul_item_lore = ColorUtil.colorList(config.getStringList("killsoul.item.lore"));
+		random_event_enabled = config.getBoolean("random_event.enabled");
+		random_event_interval = config.getInt("random_event.interval");
+		group_teleport_enabled = config.getBoolean("group_teleport.enabled");
+		group_teleport_time_threshold = config.getInt("group_teleport.time_threshold");
+		group_teleport_player_threshold = config.getInt("group_teleport.player_threshold");
+		health_bar_enabled = config.getBoolean("health_bar.enabled");
 		isBedwarsXPEnabled = Bukkit.getPluginManager().getPlugin("BedwarsXP") != null;
 		spawn_no_build_spawn_enabled = config.getBoolean("spawn_no_build.spawn.enabled");
 		spawn_no_build_spawn_range = config.getInt("spawn_no_build.spawn.range");

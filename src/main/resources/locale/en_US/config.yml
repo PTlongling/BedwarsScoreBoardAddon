@@ -14,7 +14,7 @@
 #
 
 #Config version (Don't edit!)
-version: 25
+version: 26
 
 #Check the version update with the network
 update_check:
@@ -1033,6 +1033,36 @@ killsoul:
     name: "&6&lSoul"
     lore:
     - "&7Kill streak reward"
+
+
+#Random events
+random_event:
+
+  #Enable this feature
+  enabled: true
+
+  #Event interval (seconds)
+  interval: 300
+
+
+#Group teleport
+group_teleport:
+
+  #Enable this feature
+  enabled: true
+
+  #Remaining time threshold (seconds) - trigger when game time drops below this
+  time_threshold: 120
+
+  #Alive player threshold - trigger when alive players drop below this
+  player_threshold: 4
+
+
+#Health bar (below nametag + Tab list)
+health_bar:
+
+  #Enable this feature
+  enabled: true
 
 
 #Team spawn, Resource generator protection
