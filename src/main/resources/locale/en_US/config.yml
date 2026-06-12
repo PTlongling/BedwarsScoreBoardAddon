@@ -14,7 +14,7 @@
 #
 
 #Config version (Don't edit!)
-version: 26
+version: 27
 
 #Check the version update with the network
 update_check:
@@ -1063,6 +1063,88 @@ health_bar:
 
   #Enable this feature
   enabled: true
+
+
+#Bridge egg
+bridge_egg:
+
+  #Enable this feature
+  enabled: true
+
+  #Item name to match (empty = match all eggs, no color codes)
+  name: "Bridge Egg"
+
+  #Mode (1=original trajectory, 2=cross pattern)
+  mode: 2
+
+  #Max blocks per egg
+  max_blocks: 50
+
+
+#Explosion-proof glass
+explosion_proof:
+
+  #Enable this feature (glass survives TNT explosions)
+  enabled: true
+
+
+#Fireball
+fireball:
+
+  #Enable this feature
+  enabled: true
+
+  #Explosion radius
+  yield: 1.5
+
+  #Launch velocity
+  velocity: 7.0
+
+  #Damage
+  damage: 6.0
+
+
+#Light TNT
+tnt:
+
+  #Enable this feature
+  enabled: true
+
+  #Explosion radius
+  yield: 3
+
+  #Fuse ticks (20 ticks = 1 second)
+  fuse_ticks: 80
+
+  #Normal damage
+  damage: 4
+
+  #One-shot kill at close range
+  killable:
+    enabled: true
+    distance: 1.0
+
+  #Position offset fix (may be needed for some server versions)
+  offsetfix: false
+
+
+#Spawn egg pets
+spawner:
+
+  #Enable each pet type
+  silverfish: true
+  skeleton: true
+  spider: true
+  wolf: true
+
+  #Interval to check and teleport pets back to owner (ticks)
+  teleport_interval: 200
+
+  #Interval to re-target enemies (ticks)
+  target_interval: 200
+
+  #Teleport pet to owner when farther than this distance (blocks)
+  max_distance: 20.0
 
 
 #Team spawn, Resource generator protection

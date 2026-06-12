@@ -304,6 +304,29 @@ public class Config {
 	public static Map<String, Map<String, List<Location>>> game_team_spawner;
 	public static Map<String, String> game_team_spawners;
 	public static List<MapView> image_maps;
+	public static boolean bridge_egg_enabled;
+	public static String bridge_egg_name;
+	public static int bridge_egg_mode;
+	public static int bridge_egg_max_blocks;
+	public static boolean explosion_proof_enabled;
+	public static boolean fireball_enabled;
+	public static float fireball_yield;
+	public static double fireball_velocity;
+	public static double fireball_damage;
+	public static boolean tnt_enabled;
+	public static float tnt_yield;
+	public static int tnt_fuse_ticks;
+	public static int tnt_damage;
+	public static boolean tnt_killable_enabled;
+	public static double tnt_killable_distance;
+	public static boolean tnt_offsetfix;
+	public static boolean silverfish_spawner_enabled;
+	public static boolean skeleton_spawner_enabled;
+	public static boolean spider_spawner_enabled;
+	public static boolean wolf_spawner_enabled;
+	public static int spawner_teleport_interval;
+	public static int spawner_target_interval;
+	public static double spawner_max_distance;
 
 	private static FileConfiguration getVerifiedConfig(String fileName) {
 		Map<String, String> configVersion = new HashMap<String, String>();
@@ -627,6 +650,29 @@ public class Config {
 		}
 		loadGameConfig();
 		loadImages();
+		bridge_egg_enabled = config.getBoolean("bridge_egg.enabled");
+		bridge_egg_name = config.getString("bridge_egg.name", "");
+		bridge_egg_mode = config.getInt("bridge_egg.mode");
+		bridge_egg_max_blocks = config.getInt("bridge_egg.max_blocks");
+		explosion_proof_enabled = config.getBoolean("explosion_proof.enabled");
+		fireball_enabled = config.getBoolean("fireball.enabled");
+		fireball_yield = (float) config.getDouble("fireball.yield");
+		fireball_velocity = config.getDouble("fireball.velocity");
+		fireball_damage = config.getDouble("fireball.damage");
+		tnt_enabled = config.getBoolean("tnt.enabled");
+		tnt_yield = (float) config.getDouble("tnt.yield");
+		tnt_fuse_ticks = config.getInt("tnt.fuse_ticks");
+		tnt_damage = config.getInt("tnt.damage");
+		tnt_killable_enabled = config.getBoolean("tnt.killable.enabled");
+		tnt_killable_distance = config.getDouble("tnt.killable.distance");
+		tnt_offsetfix = config.getBoolean("tnt.offsetfix");
+		silverfish_spawner_enabled = config.getBoolean("spawner.silverfish");
+		skeleton_spawner_enabled = config.getBoolean("spawner.skeleton");
+		spider_spawner_enabled = config.getBoolean("spawner.spider");
+		wolf_spawner_enabled = config.getBoolean("spawner.wolf");
+		spawner_teleport_interval = config.getInt("spawner.teleport_interval");
+		spawner_target_interval = config.getInt("spawner.target_interval");
+		spawner_max_distance = config.getDouble("spawner.max_distance");
 		if (fast_respawn) {
 			BedwarsRel.getInstance().getConfig().set("die-on-void", false);
 			BedwarsRel.getInstance().saveConfig();

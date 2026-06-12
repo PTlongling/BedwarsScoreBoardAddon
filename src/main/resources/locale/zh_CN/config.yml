@@ -14,7 +14,7 @@
 #
 
 #配置版本 (请勿修改!)
-version: 26
+version: 27
 
 
 #更新检测
@@ -1176,6 +1176,88 @@ health_bar:
 
   #是否启用
   enabled: true
+
+
+#搭桥蛋
+bridge_egg:
+
+  #是否启用
+  enabled: true
+
+  #物品名称（留空则匹配所有鸡蛋，不带颜色符号）
+  name: "搭桥蛋"
+
+  #样式模式（1=原版轨迹，2=十字形）
+  mode: 2
+
+  #最大放置方块数
+  max_blocks: 50
+
+
+#防爆玻璃
+explosion_proof:
+
+  #是否启用（玻璃免疫TNT爆炸）
+  enabled: true
+
+
+#火球
+fireball:
+
+  #是否启用
+  enabled: true
+
+  #爆炸半径
+  yield: 1.5
+
+  #飞行速度
+  velocity: 7.0
+
+  #伤害
+  damage: 6.0
+
+
+#轻型TNT
+tnt:
+
+  #是否启用
+  enabled: true
+
+  #爆炸半径
+  yield: 3
+
+  #引信时间（tick，20tick=1秒）
+  fuse_ticks: 80
+
+  #普通伤害
+  damage: 4
+
+  #近距离秒杀
+  killable:
+    enabled: true
+    distance: 1.0
+
+  #坐标偏移修正（不同版本服务端可能需要）
+  offsetfix: false
+
+
+#刷怪蛋宠物
+spawner:
+
+  #各种宠物是否启用
+  silverfish: true
+  skeleton: true
+  spider: true
+  wolf: true
+
+  #宠物传送回主人的检测间隔（tick）
+  teleport_interval: 200
+
+  #宠物重新锁定目标的检测间隔（tick）
+  target_interval: 200
+
+  #超过此距离传送回主人（方块数）
+  max_distance: 20.0
 
 
 #出生点、资源点保护

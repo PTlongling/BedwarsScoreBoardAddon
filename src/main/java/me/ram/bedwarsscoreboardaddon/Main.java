@@ -26,6 +26,12 @@ import me.ram.bedwarsscoreboardaddon.addon.SpawnNoBuild;
 import me.ram.bedwarsscoreboardaddon.addon.Spectator;
 import me.ram.bedwarsscoreboardaddon.addon.Title;
 import me.ram.bedwarsscoreboardaddon.addon.WitherBow;
+import me.ram.bedwarsscoreboardaddon.addon.entities.EntityManager;
+import me.ram.bedwarsscoreboardaddon.addon.entities.SpawnEggsListener;
+import me.ram.bedwarsscoreboardaddon.addon.items.ExplosionProof;
+import me.ram.bedwarsscoreboardaddon.addon.items.FireBall;
+import me.ram.bedwarsscoreboardaddon.addon.items.TNT;
+import me.ram.bedwarsscoreboardaddon.addon.items.bridgeegg.BridgeEgg;
 import me.ram.bedwarsscoreboardaddon.arena.Arena;
 import me.ram.bedwarsscoreboardaddon.commands.BedwarsRelCommandTabCompleter;
 import me.ram.bedwarsscoreboardaddon.commands.CommandTabCompleter;
@@ -257,5 +263,11 @@ public class Main extends JavaPlugin {
 		Bukkit.getPluginManager().registerEvents(new Compass(), this);
 		Bukkit.getPluginManager().registerEvents(new Title(), this);
 		Bukkit.getPluginManager().registerEvents(new KillSoulItem(), this);
+		Bukkit.getPluginManager().registerEvents(new FireBall(), this);
+		Bukkit.getPluginManager().registerEvents(new TNT(), this);
+		Bukkit.getPluginManager().registerEvents(new BridgeEgg(), this);
+		Bukkit.getPluginManager().registerEvents(new ExplosionProof(), this);
+		Bukkit.getPluginManager().registerEvents(new EntityManager(), this);
+		Bukkit.getPluginManager().registerEvents(new SpawnEggsListener(), this);
 	}
 }
