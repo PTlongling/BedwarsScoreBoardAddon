@@ -19,7 +19,7 @@ softdepends: [Citizens, PlaceholderAPI, ServerJoiner, WorldEdit]
 commands:
   bedwarsscoreboardaddon:
     description: Base command.
-    aliases: [bwsba]
+    aliases: [bwsba, sw]
   shout:
     description: Shout to everyone.
   rejoin:

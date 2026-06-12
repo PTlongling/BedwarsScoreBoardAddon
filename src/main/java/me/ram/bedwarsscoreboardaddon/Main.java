@@ -34,6 +34,7 @@ import me.ram.bedwarsscoreboardaddon.addon.items.TNT;
 import me.ram.bedwarsscoreboardaddon.addon.items.bridgeegg.BridgeEgg;
 import me.ram.bedwarsscoreboardaddon.arena.Arena;
 import me.ram.bedwarsscoreboardaddon.commands.BedwarsRelCommandTabCompleter;
+import me.ram.bedwarsscoreboardaddon.commands.BwAboutCommand;
 import me.ram.bedwarsscoreboardaddon.commands.CommandTabCompleter;
 import me.ram.bedwarsscoreboardaddon.commands.Commands;
 import me.ram.bedwarsscoreboardaddon.config.Config;
@@ -249,6 +250,7 @@ public class Main extends JavaPlugin {
 		Bukkit.getPluginManager().registerEvents(new LobbyScoreBoard(), this);
 		Bukkit.getPluginManager().registerEvents(new SpawnNoBuild(), this);
 		Bukkit.getPluginManager().registerEvents(new UpdateCheck(), this);
+		Bukkit.getPluginManager().registerEvents(new BwAboutCommand(), this);
 		if (enabledCitizens) {
 			Bukkit.getPluginManager().registerEvents(new ShopListener(), this);
 		}
