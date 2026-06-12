@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'me.ram.bedwarsscoreboardaddon'
-version = '2.13.1'
+version = '2.13.6'
 
 repositories {
     mavenCentral()

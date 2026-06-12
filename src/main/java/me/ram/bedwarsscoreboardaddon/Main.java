@@ -72,7 +72,7 @@ public class Main extends JavaPlugin {
 	private boolean enabledCitizens;
 
 	public static String getVersion() {
-		return "2.13.1";
+		return "2.13.6";
 	}
 
 	@Override
@@ -209,6 +209,8 @@ public class Main extends JavaPlugin {
 			Bukkit.getPluginCommand("bedwarsscoreboardaddon").setExecutor(new Commands());
 			Bukkit.getPluginCommand("bedwarsscoreboardaddon").setTabCompleter(new CommandTabCompleter());
 			Bukkit.getPluginCommand("bw").setTabCompleter(new BedwarsRelCommandTabCompleter());
+			BwAboutCommand bwAboutCommand = new BwAboutCommand();
+			Bukkit.getPluginCommand("bwauthor").setExecutor(bwAboutCommand);
 			printMessage(prefix + getLocaleConfig().getLanguage("command_success"));
 		} catch (Exception e) {
 			printMessage(prefix + getLocaleConfig().getLanguage("command_failed"));
