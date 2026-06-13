@@ -158,7 +158,9 @@ public class LocaleConfig {
 
 	public void saveResource(String resourcePath) {
 		try {
-			writeToLocal(Main.getInstance().getDataFolder().getPath() + "/" + resourcePath, Main.getInstance().getResource("locale/" + getPluginLocale().getName() + "/" + resourcePath));
+			InputStream resource = Main.getInstance().getResource("locale/" + getPluginLocale().getName() + "/" + resourcePath);
+			if (resource == null) return;
+			writeToLocal(Main.getInstance().getDataFolder().getPath() + "/" + resourcePath, resource);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -175,7 +177,9 @@ public class LocaleConfig {
 				}
 				for (String file : new String[] { "config.yml", "language.yml", "team_shop.yml" }) {
 					try {
-						writeToLocal(folder.getPath() + "/" + locale.getName() + "/" + file, Main.getInstance().getResource("locale/" + locale.getName() + "/" + file));
+						InputStream resource = Main.getInstance().getResource("locale/" + locale.getName() + "/" + file);
+						if (resource == null) continue;
+						writeToLocal(folder.getPath() + "/" + locale.getName() + "/" + file, resource);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
