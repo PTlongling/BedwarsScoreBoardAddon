@@ -39,7 +39,7 @@ public class SpawnEggsListener implements Listener {
     public void onInteract(PlayerInteractEvent e) {
         Player player = e.getPlayer();
         ItemStack handItem = e.getItem();
-        if (handItem == null || (handItem.getType() != Material.MONSTER_EGG && handItem.getType() != Material.MONSTER_EGGS)) return;
+        if (handItem == null || handItem.getType() != Material.MONSTER_EGG) return;
         if (e.getAction() != Action.RIGHT_CLICK_BLOCK) return;
 
         Game game = BedwarsRel.getInstance().getGameManager().getGameOfPlayer(player);

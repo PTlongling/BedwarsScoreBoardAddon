@@ -64,7 +64,7 @@ public class BridgeEgg implements Listener {
 
         e.setCancelled(true);
         Egg egg = player.launchProjectile(Egg.class);
-        egg.setBounce(false);
+        try { egg.setBounce(false); } catch (NoSuchMethodError ignored) {}
         egg.setShooter(player);
         strategy.start(game, egg, player);
         TakeItemUtil.takeItem(player, handItem);

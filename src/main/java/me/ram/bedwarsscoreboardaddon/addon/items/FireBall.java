@@ -44,7 +44,7 @@ public class FireBall implements Listener {
         Vector direction = player.getEyeLocation().getDirection();
         Fireball fireball = player.launchProjectile(Fireball.class);
         FireballUtil.setDirection(fireball, direction);
-        fireball.setBounce(false);
+        try { fireball.setBounce(false); } catch (NoSuchMethodError ignored) {}
         fireball.setShooter(player);
         fireball.setYield(Config.fireball_yield);
         fireball.setIsIncendiary(false);
