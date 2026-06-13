@@ -49,12 +49,12 @@ public class LocaleConfig {
 			language.put("config_success", "§a配置文件加载成功！");
 			language.put("update_checking", "§b§lBWSBA §f>> §a正在检测更新...");
 			language.put("no_update", "§b§lBWSBA §f>> §a您使用的已是最新版本！");
-			language.put("update_check_failed", "§b§lBWSBA §f>> §c检测更新失败，请检查服务器网络连接！");
+			language.put("update_check_failed", "§b§lBWSBA §f>> §c检测更新失败，请检查服务器网络连接且是否可以连接到github！");
 			language.put("update_info", "检测到版本更新！");
 			language.put("running_version", "当前版本");
 			language.put("update_version", "更新版本");
 			language.put("updates", "更新内容");
-			language.put("update_download", "更新地址");
+			language.put("update_download", "更新下载地址");
 			break;
 		case EN_US:
 			language.put("version", "Version");
