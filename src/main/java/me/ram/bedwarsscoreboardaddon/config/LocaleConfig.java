@@ -170,19 +170,21 @@ public class LocaleConfig {
 		File folder = new File(Main.getInstance().getDataFolder(), "/locale");
 		if (!folder.exists()) {
 			folder.mkdirs();
-			for (EnumLocale locale : EnumLocale.values()) {
-				File locale_folder = new File(folder.getPath(), "/" + locale.getName());
-				if (!locale_folder.exists()) {
-					locale_folder.mkdirs();
-				}
-				for (String file : new String[] { "config.yml", "language.yml", "team_shop.yml" }) {
-					try {
-						InputStream resource = Main.getInstance().getResource("locale/" + locale.getName() + "/" + file);
-						if (resource == null) continue;
-						writeToLocal(folder.getPath() + "/" + locale.getName() + "/" + file, resource);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+		}
+		for (EnumLocale locale : EnumLocale.values()) {
+			File locale_folder = new File(folder.getPath(), "/" + locale.getName());
+			if (!locale_folder.exists()) {
+				locale_folder.mkdirs();
+			}
+			for (String file : new String[] { "config.yml", "language.yml", "team_shop.yml" }) {
+				File dest = new File(locale_folder.getPath(), "/" + file);
+				if (dest.exists()) continue;
+				try {
+					InputStream resource = Main.getInstance().getResource("locale/" + locale.getName() + "/" + file);
+					if (resource == null) continue;
+					writeToLocal(dest.getPath(), resource);
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
 			}
 		}
